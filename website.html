@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women in STEM Comedy</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #E8500A;
+      --blue: #0053F9;
+      --navy: #0A1A3A;
+      --cream: #FAF7F2;
+      --black: #111010;
+      --mid: #3D3A36;
+      --light: #C8C2B8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    nav.scrolled {
+      background: var(--cream);
+      border-bottom-color: var(--light);
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav.scrolled .nav-logo { color: var(--black); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.92);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav.scrolled .nav-links a { color: var(--mid); }
+    .nav-links a:hover { color: var(--blue) !important; }
+    .nav-cta {
+      background: var(--blue) !important;
+      color: white !important;
+      padding: 0.55rem 1.25rem;
+      border-radius: 2rem;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 6rem 5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--orange);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--mid);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,83,249,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,83,249,0.4); }
+    .btn-secondary {
+      border: 1.5px solid var(--black);
+      color: var(--black);
+      padding: 0.85rem 2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { background: var(--black); color: var(--cream); }
+
+    /* HERO RIGHT — modern collage */
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: var(--blue);
+      opacity: 0.12;
+      top: -80px;
+      right: -80px;
+      z-index: 0;
+    }
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: var(--orange);
+      opacity: 0.18;
+      bottom: 60px;
+      left: -40px;
+      z-index: 0;
+      transform: rotate(15deg);
+    }
+    .hero-collage {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      padding: 5.5rem 2.5rem 3rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+    .collage-photo {
+      overflow: hidden;
+      position: relative;
+    }
+    .collage-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.1) contrast(1.05);
+      transition: transform 0.4s ease;
+    }
+    .collage-photo:hover img { transform: scale(1.04); }
+    .collage-photo--tall { grid-row: 1 / 3; }
+    .collage-accent-blue {
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+    }
+    .collage-accent-blue p {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: white;
+      line-height: 1.3;
+      text-align: center;
+    }
+    .collage-accent-orange {
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem;
+    }
+    .collage-accent-orange p {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: white;
+      text-align: center;
+    }
+    .hero-dot-grid {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(5, 6px);
+      gap: 5px;
+      opacity: 0.35;
+    }
+    .hero-dot-grid span {
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      display: block;
+    }
+    .hero-corner-bar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 6px;
+      height: 100%;
+      background: var(--blue);
+      z-index: 3;
+    }
+
+    /* TICKER */
+    .ticker {
+      background: var(--blue);
+      overflow: hidden;
+      padding: 0.8rem 0;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-flex;
+      animation: ticker 25s linear infinite;
+    }
+    .ticker-item {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: white;
+      padding: 0 2.5rem;
+    }
+    .ticker-sep { color: rgba(255,255,255,0.5); }
+
+    /* ABOUT */
+    .about {
+      padding: 7rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .about-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .about-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--mid);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .stat {
+      border-top: 1.5px solid var(--light);
+      padding-top: 1rem;
+    }
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--mid);
+      letter-spacing: 0.05em;
+    }
+
+    /* CASSIDY BIO */
+    .cassidy-card {
+      background: var(--navy);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      color: white;
+    }
+    .cassidy-photo {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: saturate(1.05);
+    }
+    .cassidy-body {
+      padding: 2rem 2.25rem 2.5rem;
+      position: relative;
+    }
+    .cassidy-body::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -30px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,83,249,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cassidy-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .cassidy-role {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.25rem;
+    }
+    .cassidy-text {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.72);
+      font-weight: 300;
+    }
+    .cassidy-text p + p { margin-top: 0.9rem; }
+
+    /* ABOUT OUR COMICS */
+    .comics {
+      padding: 6rem 5rem;
+      background: var(--black);
+      color: white;
+    }
+    .comics-header {
+      text-align: center;
+      margin-bottom: 4.5rem;
+    }
+    .comics-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .comics-title em { font-style: italic; color: var(--blue); }
+    .comics-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      margin-top: 0.75rem;
+    }
+
+    .logos-block {
+      margin-bottom: 4rem;
+    }
+    .logos-block:last-child { margin-bottom: 0; }
+
+    .logos-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .logos-label::before,
+    .logos-label::after {
+      content: '';
+      flex: 1;
+      max-width: 120px;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .logos-img {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      display: block;
+      /* invert white backgrounds on dark section */
+      filter: brightness(0) invert(1);
+      opacity: 0.75;
+    }
+    /* performed logos already have colored backgrounds — keep them */
+    .logos-img--performed {
+      filter: none;
+      opacity: 0.9;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 7rem 5rem;
+      background: var(--cream);
+      border-top: 1px solid var(--light);
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .testimonials-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: white;
+      border: 1.5px solid var(--light);
+      border-radius: 1.25rem;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .testimonial-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: 'DM Serif Display', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--blue);
+      opacity: 0.15;
+      position: absolute;
+      top: 0.75rem;
+      left: 1.5rem;
+    }
+    .testimonial-quote {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      font-style: italic;
+      color: var(--black);
+      padding-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-attr {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-top: auto;
+    }
+    .testimonial-attr strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 0.1rem;
+      font-size: 0.7rem;
+    }
+
+    /* SHOWS */
+    .shows {
+      padding: 7rem 5rem;
+      background: var(--navy);
+      color: white;
+    }
+    .shows-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+    .shows-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .shows-title em { color: var(--orange); font-style: italic; }
+    .show-list { display: flex; flex-direction: column; }
+    .show-item {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.75rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      cursor: pointer;
+      transition: background 0.2s;
+      border-radius: 0.5rem;
+    }
+    .show-item:hover { background: rgba(0,83,249,0.08); }
+    .show-item:hover .show-cta { color: var(--blue); }
+    .show-date {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.85rem;
+      color: var(--orange);
+      line-height: 1.3;
+    }
+    .show-info h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .show-info p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.03em;
+    }
+    .show-cta {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    /* CORPORATE */
+    .corporate {
+      padding: 7rem 5rem;
+      background: var(--cream);
+    }
+    .corporate-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .corp-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .corp-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--mid);
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+    .btn-orange {
+      background: var(--orange);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(232,80,10,0.3);
+      display: inline-block;
+    }
+    .btn-orange:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,80,10,0.4); }
+    .corp-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .corp-card {
+      border: 1.5px solid var(--light);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .corp-card:hover { border-color: var(--orange); transform: translateX(6px); }
+    .corp-card-title {
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .corp-card-title span {
+      background: var(--orange);
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .corp-card-body {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* CONTACT */
+    .contact {
+      padding: 7rem 5rem;
+      background: var(--blue);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact::before {
+      content: 'BOOK';
+      position: absolute;
+      font-family: 'DM Serif Display', serif;
+      font-size: 28vw;
+      color: rgba(0,0,0,0.08);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .contact::after {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: var(--orange);
+      opacity: 0.2;
+      border-radius: 50%;
+      bottom: -80px;
+      right: -60px;
+      pointer-events: none;
+    }
+    .contact-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      color: white;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-white {
+      background: white;
+      color: var(--blue);
+      padding: 0.9rem 2.2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+    .btn-outline-white {
+      border: 1.5px solid rgba(255,255,255,0.6);
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.4);
+      padding: 2.5rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--blue); }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: white;
+    }
+    .footer-links { display: flex; gap: 1.5rem; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 7rem 2rem 3rem; }
+      .hero-right { height: 380px; }
+      .hero-collage { padding: 1.5rem; gap: 8px; }
+      .about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+      .corporate-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .shows, .corporate, .contact { padding: 5rem 2rem; }
+      .comics { padding: 5rem 2rem; }
+      .testimonials { padding: 5rem 2rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .shows-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .show-item { grid-template-columns: 80px 1fr; }
+      .show-cta { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Women in STEM Comedy</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#shows">Shows</a>
+      <a href="#corporate">Corporate</a>
+      <a href="#contact" class="nav-cta">Book Us</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Los Angeles · Est. April 2025</p>
+      <h1 class="hero-title">Where <em>science</em> meets the punchline.</h1>
+      <p class="hero-sub">A sold-out stand-up show featuring female comedians with real STEM backgrounds. Smart, sharp, and genuinely funny.</p>
+      <div class="hero-actions">
+        <a href="#shows" class="btn-primary">Get Tickets</a>
+        <a href="#corporate" class="btn-secondary">Book for Events</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-corner-bar"></div>
+      <div class="hero-collage">
+        <div class="collage-photo collage-photo--tall">
+          <img src="collage/img/p1-portrait.jpg" alt="Performer on stage" />
+        </div>
+        <div class="collage-accent-blue">
+          <p>Smart. Sharp.<br>Genuinely funny.</p>
+        </div>
+        <div class="collage-photo">
+          <img src="collage/img/p2-show.jpg" alt="Show at Lyric Hyperion" />
+        </div>
+        <div class="collage-accent-orange">
+          <p>Sold out · Every show · Los Angeles</p>
+        </div>
+        <div class="collage-photo">
+          <img src="collage/img/p5-group4.jpg" alt="Cast group photo" />
+        </div>
+      </div>
+      <div class="hero-dot-grid">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span class="ticker-item">AI Safety <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Population Genetics <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Traffic Engineering <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Biomedical Research <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Applied Statistics <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Electrical Engineering <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Nursing <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">AI Safety <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Population Genetics <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Traffic Engineering <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Biomedical Research <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Applied Statistics <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Electrical Engineering <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Nursing <span class="ticker-sep">✦</span></span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div>
+      <p class="section-label">About the Show</p>
+      <h2 class="about-title">Comedy that actually knows what a p-value is.</h2>
+      <p class="about-body">Women in STEM Comedy brings together female comedians who've worked in labs, written code, studied cells, and built infrastructure — and lived to make jokes about it.</p>
+      <p class="about-body">Each show features original stand-up sets that draw from real STEM experiences: the impostor syndrome, the jargon, the conferences, the pipeline problem.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">450+</div>
+          <div class="stat-label">Community members</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">80</div>
+          <div class="stat-label">Seat venue, sold out</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">1yr</div>
+          <div class="stat-label">Anniversary celebrated</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">LA</div>
+          <div class="stat-label">Based, touring soon</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cassidy bio, merged into about section -->
+    <div class="cassidy-card">
+      <!-- Replace src with Cassidy's headshot when available -->
+      <img class="cassidy-photo" src="collage/img/p4-stripes.jpg" alt="Cassidy McDonnell" />
+      <div class="cassidy-body">
+        <h3 class="cassidy-name">Hi, I'm Cassidy.</h3>
+        <p class="cassidy-role">Host &amp; Producer, Women in STEM Comedy</p>
+        <div class="cassidy-text">
+          <p>A former traffic engineer (it's a real thing), I work in software by day and spend the rest of my time writing, running, and performing standup.</p>
+          <p>I started Women in STEM as a one-off experiment. Several sold-out shows later, we've had hundreds of people come through the door and an outpouring of incredible feedback.</p>
+          <p>If you're looking for a unique, hilarious, and genuinely memorable addition to your next event — let's talk!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT OUR COMICS -->
+  <section class="comics" id="comics">
+    <div class="comics-header">
+      <p class="section-label" style="text-align:center; color: rgba(0,83,249,0.7)">About Our Comics</p>
+      <h2 class="comics-title">A pretty <em>well-credentialed</em> bunch.</h2>
+      <p class="comics-subtitle">Real STEM backgrounds. Real punchlines.</p>
+    </div>
+
+    <div class="logos-block">
+      <p class="logos-label">Where we've studied</p>
+      <img class="logos-img" src="studied.png" alt="Universities our comics attended: UC Berkeley, Penn, Harvard, Carnegie Mellon, Caltech, Cornell, MIT, Stanford, Barnard, Vanderbilt" />
+    </div>
+
+    <div class="logos-block">
+      <p class="logos-label">Where we've worked</p>
+      <img class="logos-img" src="worked.png" alt="Companies our comics have worked at: Thermo Fisher, Microsoft, Hulu, Meta, Snapchat, Apple, UCLA Health, WSP, J.P. Morgan" />
+    </div>
+
+    <div class="logos-block">
+      <p class="logos-label">Where we've performed</p>
+      <img class="logos-img logos-img--performed" src="performed.png" alt="Venues and shows our comics have performed at: Last Comic Standing, Netflix is a Joke Fest, HBO Max, Prime Video, Dropout, Don't Tell Comedy, UCB, The Stand, Just for Laughs, The Comedy Store, NY Comedy Festival, Laugh After Dark, Improv, Last Call with Carson Daly, Laugh Factory" />
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-header">
+      <p class="section-label" style="text-align:center">What People Are Saying</p>
+      <h2 class="testimonials-title">The crowd has <em style="font-style:italic; color:var(--orange)">spoken.</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"I haven't laughed this hard since my dissertation defense. And that was not a good time."</p>
+        <p class="testimonial-attr">
+          <strong>Show #3 Audience Member</strong>
+          Los Angeles, CA
+        </p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Brought my whole engineering team. Best team event we've ever done — and we've done axe throwing."</p>
+        <p class="testimonial-attr">
+          <strong>Corporate Attendee</strong>
+          ERG Event, Tech Company
+        </p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Rare to be in a room where the jokes are actually about your life. These women really get it."</p>
+        <p class="testimonial-attr">
+          <strong>Show #5 Audience Member</strong>
+          Los Angeles, CA
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWS -->
+  <section class="shows" id="shows">
+    <div class="shows-header">
+      <div>
+        <p class="section-label" style="color: rgba(0,83,249,0.7)">Upcoming Shows</p>
+        <h2 class="shows-title">Come see us <em>live.</em></h2>
+      </div>
+    </div>
+    <div class="show-list">
+      <div class="show-item">
+        <div class="show-date">Jun 7<br>2026</div>
+        <div class="show-info">
+          <h3>Women in STEM Comedy</h3>
+          <p>Lyric Hyperion · Los Angeles, CA · 7:30 PM</p>
+        </div>
+        <span class="show-cta">Get Tickets →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORPORATE -->
+  <section class="corporate" id="corporate">
+    <div class="corporate-inner">
+      <div>
+        <p class="section-label" style="color: var(--orange)">Corporate &amp; Events</p>
+        <h2 class="corp-title">The smartest entertainment option at your next event.</h2>
+        <p class="corp-body">Women in STEM Comedy is available for corporate events, conferences, ERG programming, and DEI initiatives. We bring a polished, professional show that earns genuine laughs from technical and non-technical audiences alike.</p>
+        <a href="#contact" class="btn-orange">Get In Touch</a>
+      </div>
+      <div class="corp-cards">
+        <div class="corp-card">
+          <div class="corp-card-title"><span>1</span> Conference &amp; Summit Entertainment</div>
+          <div class="corp-card-body">A full live show or keynote comedy set for your tech conference, STEM summit, or innovation event. Perfect for opening nights and closing celebrations.</div>
+        </div>
+        <div class="corp-card">
+          <div class="corp-card-title"><span>2</span> ERG &amp; DEI Programming</div>
+          <div class="corp-card-body">Partner with your Women in Tech, STEM diversity, or inclusion-focused employee resource groups for a meaningful and entertaining event.</div>
+        </div>
+        <div class="corp-card">
+          <div class="corp-card-title"><span>3</span> Private &amp; Branded Shows</div>
+          <div class="corp-card-body">A fully custom show for your company's audience — we can tailor material to your industry, culture, and event goals.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <p class="contact-label">Get In Touch</p>
+    <h2 class="contact-title">Let's put some<br>science on stage.</h2>
+    <p class="contact-sub">Whether you want tickets to our next show or want to bring Women in STEM Comedy to your event — we'd love to hear from you.</p>
+    <div class="contact-actions">
+      <a href="mailto:hello@womeninstemcomedy.com" class="btn-white">Send Us a Note</a>
+      <a href="#shows" class="btn-outline-white">See Upcoming Shows</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Women in STEM Comedy</span>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Newsletter</a>
+    </div>
+    <span>© 2025 Women in STEM Comedy. Los Angeles, CA.</span>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+
+</body>
+</html>

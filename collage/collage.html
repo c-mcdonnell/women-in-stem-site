@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Women in STEM — Comedy Show Collage</title>
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-deep: #091833;
+    --gold: #d4a017;
+    --gold-bright: #f4c430;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .collage {
+    width: 100%;
+    max-width: 1280px;
+    background: var(--navy);
+    padding: 28px;
+    border: 4px solid var(--gold);
+    border-radius: 8px;
+    box-shadow: 0 0 0 2px var(--navy) inset;
+    position: relative;
+  }
+
+  .collage::before,
+  .collage::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: var(--gold);
+    opacity: 0.9;
+  }
+  .collage::before { top: 16px; }
+  .collage::after  { bottom: 16px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1.55fr 1.15fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 18px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .cell {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 3px solid var(--gold);
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    background: var(--navy-deep);
+  }
+
+  .cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Layout — mirrors the example collage */
+  .cell--tall    { grid-column: 1; grid-row: 1 / span 2; }
+  .cell--top-mid { grid-column: 2; grid-row: 1; }
+  .cell--top-rt  { grid-column: 3; grid-row: 1; }
+  .cell--bot-mid { grid-column: 2; grid-row: 2; }
+  .cell--bot-rt  { grid-column: 3; grid-row: 2; }
+
+  /* Subtle warm overlay so the navy + gold pulls the photos together */
+  .cell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13,31,60,0) 60%, rgba(13,31,60,0.18) 100%);
+    pointer-events: none;
+  }
+
+  @media (max-width: 720px) {
+    .collage { padding: 18px; }
+    .grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      aspect-ratio: auto;
+      gap: 12px;
+    }
+    .cell--tall    { grid-column: 1 / span 2; grid-row: 1; aspect-ratio: 16/9; }
+    .cell--top-mid { grid-column: 1; grid-row: 2; aspect-ratio: 4/3; }
+    .cell--top-rt  { grid-column: 2; grid-row: 2; aspect-ratio: 4/3; }
+    .cell--bot-mid { grid-column: 1; grid-row: 3; aspect-ratio: 4/3; }
+    .cell--bot-rt  { grid-column: 2; grid-row: 3; aspect-ratio: 4/3; }
+  }
+</style>
+</head>
+<body>
+  <section class="collage" aria-label="Women in STEM comedy show photo collage">
+    <div class="grid">
+      <figure class="cell cell--tall">
+        <img src="img/p1-portrait.jpg" alt="Comedian on stage with microphone, smiling, in a striped shirt" />
+      </figure>
+      <figure class="cell cell--top-mid">
+        <img src="img/p2-group.jpg" alt="Four performers smiling together at the show" />
+      </figure>
+      <figure class="cell cell--top-rt">
+        <img src="img/p3-guitar.jpg" alt="Performer with guitar at the Lyric Hyperion stage" />
+      </figure>
+      <figure class="cell cell--bot-mid">
+        <img src="img/p4-stripes.jpg" alt="Comedian on stage with mic, dramatic lighting" />
+      </figure>
+      <figure class="cell cell--bot-rt">
+        <img src="img/p5-green.jpg" alt="Comedian on stage in front of red curtain" />
+      </figure>
+    </div>
+  </section>
+</body>
+</html>
