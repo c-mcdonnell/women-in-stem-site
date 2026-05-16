@@ -340,125 +340,172 @@
       letter-spacing: 0.05em;
     }
 
-    /* CASSIDY BIO */
-    .cassidy-card {
+    /* ABOUT QUOTE CARD */
+    .about-visual { position: relative; }
+    .about-card {
       background: var(--navy);
       border-radius: 1.5rem;
-      overflow: hidden;
+      padding: 3rem;
       color: white;
-    }
-    .cassidy-photo {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      filter: saturate(1.05);
-    }
-    .cassidy-body {
-      padding: 2rem 2.25rem 2.5rem;
       position: relative;
+      overflow: hidden;
     }
-    .cassidy-body::before {
+    .about-card::before {
       content: '';
       position: absolute;
-      top: -40px;
-      right: -30px;
-      width: 200px;
-      height: 200px;
+      top: -50%;
+      right: -30%;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(0,83,249,0.2) 0%, transparent 70%);
-      pointer-events: none;
     }
-    .cassidy-name {
+    .about-card-quote {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.9rem;
-      line-height: 1.1;
-      margin-bottom: 0.4rem;
+      font-size: 1.4rem;
+      line-height: 1.5;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
     }
-    .cassidy-role {
+    .about-card-attr {
+      font-size: 0.8rem;
+      color: var(--orange);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    .about-tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .tag {
+      background: rgba(0,83,249,0.15);
+      border: 1px solid rgba(0,83,249,0.3);
+      color: #6699ff;
+      padding: 0.35rem 0.9rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* ABOUT ME SECTION */
+    .about-me {
+      padding: 7rem 5rem;
+      background: white;
+      border-top: 1px solid var(--light);
+    }
+    .about-me-inner {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-me-photo-wrap {
+      position: relative;
+    }
+    .about-me-photo-wrap::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      right: 12px;
+      bottom: 12px;
+      border: 2px solid var(--blue);
+      border-radius: 1.5rem;
+      z-index: 0;
+    }
+    .about-me-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 1.25rem;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+    .about-me-text { }
+    .about-me-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .about-me-role {
       font-size: 0.75rem;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 1.25rem;
+      margin-bottom: 2rem;
     }
-    .cassidy-text {
-      font-size: 0.92rem;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.72);
+    .about-me-body {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--mid);
       font-weight: 300;
     }
-    .cassidy-text p + p { margin-top: 0.9rem; }
+    .about-me-body p + p { margin-top: 1.1rem; }
 
     /* ABOUT OUR COMICS */
     .comics {
-      padding: 6rem 5rem;
-      background: var(--black);
-      color: white;
-    }
-    .comics-header {
-      text-align: center;
-      margin-bottom: 4.5rem;
-    }
-    .comics-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-    .comics-title em { font-style: italic; color: var(--blue); }
-    .comics-subtitle {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.5);
-      font-weight: 300;
-      margin-top: 0.75rem;
+      padding: 6rem 4.5rem;
+      background: white;
     }
 
     .logos-block {
-      margin-bottom: 4rem;
+      margin-bottom: 4.5rem;
     }
     .logos-block:last-child { margin-bottom: 0; }
 
     .logos-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
+      font-size: 1.15rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--blue);
       font-weight: 500;
       text-align: center;
-      margin-bottom: 1.75rem;
+      margin-bottom: 2.25rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.25rem;
     }
     .logos-label::before,
     .logos-label::after {
       content: '';
       flex: 1;
-      max-width: 120px;
+      max-width: 160px;
       height: 1px;
-      background: rgba(255,255,255,0.1);
+      background: var(--light);
     }
 
-    .logos-img {
-      width: 100%;
-      max-width: 860px;
+    .logo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem 3.5rem;
+      max-width: 900px;
       margin: 0 auto;
+    }
+    .logo-grid img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
       display: block;
-      /* invert white backgrounds on dark section */
-      filter: brightness(0) invert(1);
-      opacity: 0.75;
     }
-    /* performed logos already have colored backgrounds — keep them */
-    .logos-img--performed {
-      filter: none;
-      opacity: 0.9;
-      border-radius: 0.5rem;
-      overflow: hidden;
-    }
+    .logo-grid--studied img { height: 54px; }
+    .logo-grid--performed img { height: 58px; }
+    .flex-break { flex-basis: 100%; height: 0; }
 
     /* TESTIMONIALS */
     .testimonials {
@@ -792,6 +839,8 @@
       .hero-right { height: 380px; }
       .hero-collage { padding: 1.5rem; gap: 8px; }
       .about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+      .about-me { padding: 5rem 2rem; }
+      .about-me-inner { grid-template-columns: 1fr; gap: 3rem; }
       .corporate-inner { grid-template-columns: 1fr; gap: 3rem; }
       .shows, .corporate, .contact { padding: 5rem 2rem; }
       .comics { padding: 5rem 2rem; }
@@ -823,8 +872,9 @@
   <section class="hero">
     <div class="hero-left">
       <p class="hero-eyebrow">Los Angeles · Est. April 2025</p>
-      <h1 class="hero-title">Where <em>science</em> meets the punchline.</h1>
-      <p class="hero-sub">A sold-out stand-up show featuring female comedians with real STEM backgrounds. Smart, sharp, and genuinely funny.</p>
+      <h1 class="hero-title">women in STEM<br><em></em> </h1>
+      <!-- <h1 class="hero-title"><em>a comedy show</em> </h1> -->
+      <p class="hero-sub"> a stand-up comedy show featuring female scientists and engineers. <br><i>bold. unnatural. avant-garde.</i></p>
       <div class="hero-actions">
         <a href="#shows" class="btn-primary">Get Tickets</a>
         <a href="#corporate" class="btn-secondary">Book for Events</a>
@@ -885,36 +935,33 @@
     <div>
       <p class="section-label">About the Show</p>
       <h2 class="about-title">Comedy that actually knows what a p-value is.</h2>
-      <p class="about-body">Women in STEM Comedy brings together female comedians who've worked in labs, written code, studied cells, and built infrastructure — and lived to make jokes about it.</p>
-      <p class="about-body">Each show features original stand-up sets that draw from real STEM experiences: the impostor syndrome, the jargon, the conferences, the pipeline problem.</p>
-      <div class="about-stats">
-        <div class="stat">
-          <div class="stat-number">450+</div>
-          <div class="stat-label">Community members</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">80</div>
-          <div class="stat-label">Seat venue, sold out</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">1yr</div>
-          <div class="stat-label">Anniversary celebrated</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">LA</div>
-          <div class="stat-label">Based, touring soon</div>
-        </div>
-      </div>
+      <p class="about-body">Math. Science. Stand-up comedy.</p>
+      <p class="about-body">For centuries, these sacred disciplines have been reserved primarily for men. And honestly, that's how it should be.</p>
+      <p class="about-body">Women aren't funny. Women aren't smart. And women certainly should not get on stage and be either of those things.</p>
+      <p class="about-body">Which is exactly why do it.</p>
+      <p class="about-body">Women in STEM features a comedy lineup made up entirely of female scientists and engineers. No diversity. No equity. No inclusion. The way comedy was meant to be.</p>
     </div>
 
-    <!-- Cassidy bio, merged into about section -->
-    <div class="cassidy-card">
-      <!-- Replace src with Cassidy's headshot when available -->
-      <img class="cassidy-photo" src="collage/img/p4-stripes.jpg" alt="Cassidy McDonnell" />
-      <div class="cassidy-body">
-        <h3 class="cassidy-name">Hi, I'm Cassidy.</h3>
-        <p class="cassidy-role">Host &amp; Producer, Women in STEM Comedy</p>
-        <div class="cassidy-text">
+    <div class="about-visual">
+      <div class="about-card">
+        <p class="about-card-quote">"Actually funny"</p>
+        <p class="about-card-attr">— A man who came to the show once</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section class="about-me" id="about-me">
+    <div class="about-me-inner">
+      <div class="about-me-photo-wrap">
+        <!-- Replace with Cassidy's headshot -->
+        <img class="about-me-photo" src="cassidy_image.jpg" alt="Cassidy McDonnell" />
+      </div>
+      <div class="about-me-text">
+        <p class="section-label">About the Host</p>
+        <h2 class="about-me-name">Hi, I'm Cassidy.</h2>
+        <p class="about-me-role">Host &amp; Producer, Women in STEM Comedy</p>
+        <div class="about-me-body">
           <p>A former traffic engineer (it's a real thing), I work in software by day and spend the rest of my time writing, running, and performing standup.</p>
           <p>I started Women in STEM as a one-off experiment. Several sold-out shows later, we've had hundreds of people come through the door and an outpouring of incredible feedback.</p>
           <p>If you're looking for a unique, hilarious, and genuinely memorable addition to your next event — let's talk!</p>
@@ -925,25 +972,62 @@
 
   <!-- ABOUT OUR COMICS -->
   <section class="comics" id="comics">
-    <div class="comics-header">
-      <p class="section-label" style="text-align:center; color: rgba(0,83,249,0.7)">About Our Comics</p>
-      <h2 class="comics-title">A pretty <em>well-credentialed</em> bunch.</h2>
-      <p class="comics-subtitle">Real STEM backgrounds. Real punchlines.</p>
-    </div>
-
     <div class="logos-block">
       <p class="logos-label">Where we've studied</p>
-      <img class="logos-img" src="studied.png" alt="Universities our comics attended: UC Berkeley, Penn, Harvard, Carnegie Mellon, Caltech, Cornell, MIT, Stanford, Barnard, Vanderbilt" />
+      <div class="logo-grid logo-grid--studied">
+        <img src="logos/Harvard-Emblem.png" alt="Harvard" />
+        <img src="logos/MIT.png" alt="MIT" />
+        <img src="logos/stanford.png" alt="Stanford" />
+        <img src="logos/berkeley.png" alt="UC Berkeley" />
+        <img src="logos/Caltech_Logo.svg.png" alt="Caltech" style="height:40px" />
+        <img src="logos/CMU%20logo.png" alt="Carnegie Mellon" />
+        <div class="flex-break"></div>
+        <img src="logos/Cornell_University_seal.svg.png" alt="Cornell" style="height:67px" />
+        <img src="logos/barnard-college-logo.png" alt="Barnard" />
+        <img src="logos/vanderbilt.png" alt="Vanderbilt" style="height:67px" />
+        <img src="logos/penn.png" alt="Penn" />
+      </div>
     </div>
 
     <div class="logos-block">
       <p class="logos-label">Where we've worked</p>
-      <img class="logos-img" src="worked.png" alt="Companies our comics have worked at: Thermo Fisher, Microsoft, Hulu, Meta, Snapchat, Apple, UCLA Health, WSP, J.P. Morgan" />
+      <div class="logo-grid">
+        <img src="logos/google.png" alt="Google" />
+        <img src="logos/microsoft.png" alt="Microsoft" style="height:69px" />
+        <img src="logos/meta-logo.webp" alt="Meta" />
+        <img src="logos/Hulu-Logo.wine.png" alt="Hulu" style="height:65px" />
+        <img src="logos/apple.png" alt="Apple" />
+        <img src="logos/Snapchat-Logo.png" alt="Snapchat" style="height:60px" />
+        <img src="logos/thermo-fisher-scientific-logo-11530964369n55iig0pja.png" alt="Thermo Fisher" style="height:50px" />
+        <img src="logos/ucla%20health%20copy.png" alt="UCLA Health" style="height:58px" />
+        <img src="logos/wsp.png" alt="WSP" />
+        <img src="logos/JP-Morgan-Chase-Emblem.png" alt="J.P. Morgan" />
+        <img src="logos/balto.png" alt="Balto" />
+        <img src="logos/success%20academy.png" alt="Success Academy" />
+      </div>
     </div>
 
     <div class="logos-block">
       <p class="logos-label">Where we've performed</p>
-      <img class="logos-img logos-img--performed" src="performed.png" alt="Venues and shows our comics have performed at: Last Comic Standing, Netflix is a Joke Fest, HBO Max, Prime Video, Dropout, Don't Tell Comedy, UCB, The Stand, Just for Laughs, The Comedy Store, NY Comedy Festival, Laugh After Dark, Improv, Last Call with Carson Daly, Laugh Factory" />
+      <div class="logo-grid logo-grid--performed">
+        <img src="logos/lastcomicstanding0.png" alt="Last Comic Standing" />
+        <img src="logos/netflix%20is%20a%20joke.png" alt="Netflix is a Joke Fest" />
+        <img src="logos/HBO_Max-Logo.wine.png" alt="HBO Max" style="height:40px" />
+        <img src="logos/prime%20video.png" alt="Prime Video" />
+        <img src="logos/Dropout_Logo_VHX_4.png" alt="Dropout" />
+        <div class="flex-break"></div>
+        <img src="logos/don't%20tell.png" alt="Don't Tell Comedy" />
+        <img src="logos/ucb.png" alt="UCB Theatre" />
+        <img src="logos/the%20stand.png" alt="The Stand" />
+        <img src="logos/JFL-The-Lede-1.png" alt="Just for Laughs" style="height:71px" />
+        <img src="logos/comedy%20store.png" alt="The Comedy Store" style="height:71px" />
+        <div class="flex-break"></div>
+        <img src="logos/Laugh_Factory_Show_Category.jpg" alt="Laugh Factory" />
+        <img src="logos/ny%20comedy%20festival%20copy.jpg" alt="NY Comedy Festival" />
+        <img src="logos/new%20york%20comedy%20club%20copy.jpg" alt="New York Comedy Club" />
+        <img src="logos/improv.png" alt="Improv" style="height:71px" />
+        <img src="logos/LastCall.png" alt="Last Call with Carson Daly" />
+      </div>
     </div>
   </section>
 
@@ -955,24 +1039,24 @@
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card">
-        <p class="testimonial-quote">"I haven't laughed this hard since my dissertation defense. And that was not a good time."</p>
+        <p class="testimonial-quote">"Every show has had such a great lineup and such a fun crowd! I love hearing STEM jokes and having an excuse to write nerdy music."</p>
         <p class="testimonial-attr">
-          <strong>Show #3 Audience Member</strong>
-          Los Angeles, CA
+          <strong>Ilana Arbisser, PhD</strong>
+          Software Engineer, Google
         </p>
       </div>
       <div class="testimonial-card">
-        <p class="testimonial-quote">"Brought my whole engineering team. Best team event we've ever done — and we've done axe throwing."</p>
+        <p class="testimonial-quote">"This show is a breath of fresh air in the standup comedy world. It was one of the funniest nights I've had in a long time!"</p>
         <p class="testimonial-attr">
-          <strong>Corporate Attendee</strong>
-          ERG Event, Tech Company
+          <strong>Gia Park</strong>
+          Manager, Strategy & Analysis, HBO Max
         </p>
       </div>
       <div class="testimonial-card">
-        <p class="testimonial-quote">"Rare to be in a room where the jokes are actually about your life. These women really get it."</p>
+        <p class="testimonial-quote">"Actually funny."</p>
         <p class="testimonial-attr">
-          <strong>Show #5 Audience Member</strong>
-          Los Angeles, CA
+          <strong>A man who came to a show once</strong>
+          Some tech company, probably
         </p>
       </div>
     </div>
@@ -982,7 +1066,7 @@
   <section class="shows" id="shows">
     <div class="shows-header">
       <div>
-        <p class="section-label" style="color: rgba(0,83,249,0.7)">Upcoming Shows</p>
+        <p class="section-label" style="color: rgba(255,255,255,0.5)">Upcoming Shows</p>
         <h2 class="shows-title">Come see us <em>live.</em></h2>
       </div>
     </div>
@@ -993,7 +1077,7 @@
           <h3>Women in STEM Comedy</h3>
           <p>Lyric Hyperion · Los Angeles, CA · 7:30 PM</p>
         </div>
-        <span class="show-cta">Get Tickets →</span>
+        <a class="btn-primary" href="https://www.eventbrite.com/e/women-in-stem-tickets-1987796529931" target="_blank">Get Tickets</a>
       </div>
     </div>
   </section>
@@ -1040,7 +1124,6 @@
     <span class="footer-logo">Women in STEM Comedy</span>
     <div class="footer-links">
       <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
       <a href="#">Newsletter</a>
     </div>
     <span>© 2025 Women in STEM Comedy. Los Angeles, CA.</span>
