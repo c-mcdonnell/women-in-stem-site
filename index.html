@@ -400,6 +400,35 @@
       position: relative;
       z-index: 1;
     }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.75rem;
+      position: relative;
+      z-index: 1;
+    }
+    .stat {
+      text-align: center;
+      padding: 0 0.5rem;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: white;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
     .about-tag-cloud {
       display: flex;
       flex-wrap: wrap;
@@ -981,6 +1010,24 @@
       <div class="about-card">
         <p class="about-card-quote">"Actually funny"</p>
         <p class="about-card-attr">— A man who came to the show once</p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Shows</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">400+</div>
+            <div class="stat-label">Tickets sold</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">18</div>
+            <div class="stat-label">Comics</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">1</div>
+            <div class="stat-label">City (for now)</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1088,10 +1135,10 @@
         </p>
       </div>
       <div class="testimonial-card">
-        <p class="testimonial-quote">"Actually funny."</p>
+        <p class="testimonial-quote">"Quote from Aina."</p>
         <p class="testimonial-attr">
-          <strong>A man who came to a show once</strong>
-          Some tech company, probably
+          <strong>Aina Martinez Zurita</strong>
+          Genetics and Geonomics PhD, UCLA
         </p>
       </div>
     </div>
@@ -1147,7 +1194,7 @@
   <section class="contact" id="contact">
     <p class="contact-label">Get In Touch</p>
     <h2 class="contact-title">Let's put some<br>science on stage.</h2>
-    <p class="contact-sub">Whether you want tickets to our next show or want to bring Women in STEM Comedy to your event — we'd love to hear from you.</p>
+    <p class="contact-sub">Whether you want to check out a show or bring Women in STEM Comedy to your next event — we'd love to hear from you.</p>
     <div class="contact-actions">
       <a href="mailto:hello@womeninstemcomedy.com" class="btn-white">Send Us a Note</a>
       <a href="#shows" class="btn-outline-white">See Upcoming Shows</a>
