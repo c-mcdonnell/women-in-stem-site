@@ -747,6 +747,75 @@
       color: var(--mid);
       line-height: 1.6;
     }
+    a.corp-card { text-decoration: none; color: inherit; display: block; }
+    .corp-card-cta {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--blue);
+      margin-top: 0.75rem;
+    }
+
+    /* SPONSORS */
+    .sponsors {
+      padding: 7rem 5rem;
+      background: white;
+      border-top: 1px solid var(--light);
+    }
+    .sponsors-inner { max-width: 820px; margin: 0 auto; }
+    .sponsors-intro { max-width: 640px; }
+    .tier-block-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+      margin: 2.5rem 0 0.75rem;
+    }
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .tier-card {
+      border: 1.5px solid var(--light);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .tier-card:hover { border-color: var(--blue); transform: translateY(-4px); }
+    .tier-card-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+    .tier-card-price {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.85rem;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .tier-card ul {
+      padding-left: 1.1rem;
+      color: var(--mid);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+    .addon-note {
+      background: var(--cream);
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    .addon-note strong { color: var(--black); }
+    .cross-link {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--mid);
+    }
+    .cross-link a { color: var(--blue); font-weight: 500; text-decoration: none; }
+    .cross-link a:hover { text-decoration: underline; }
 
     /* CONTACT */
     .contact {
@@ -880,7 +949,8 @@
       .about-me { padding: 5rem 2rem; }
       .about-me-inner { grid-template-columns: 1fr; gap: 3rem; }
       .corporate-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .shows, .corporate, .contact { padding: 5rem 2rem; }
+      .shows, .corporate, .contact, .sponsors { padding: 5rem 2rem; }
+      .tier-grid { grid-template-columns: 1fr; }
       .comics { padding: 2rem 2rem 5rem; }
       .video-section { padding: 3rem 2rem; }
       .testimonials { padding: 5rem 2rem; }
@@ -908,6 +978,8 @@
       <a href="#about">About</a>
       <a href="#shows">Shows</a>
       <a href="#corporate">Corporate</a>
+      <a href="corporate-events.html">Book an Event</a>
+      <a href="#sponsors">Sponsors</a>
       <a href="#contact" class="nav-cta">Book Now!</a>
     </div>
   </nav>
@@ -1150,7 +1222,7 @@
         <div class="show-date">Jul 31<br>2026</div>
         <div class="show-info">
           <h3>Friday Movie Night: Hidden Figures</h3>
-          <p>Hollywood Ovation · Los Angeles, CA</p>
+          <p>Ovation Hollywood · Los Angeles, CA</p>
         </div>
         <a class="btn-primary" href="https://www.eventbrite.com/e/friday-movie-nights-hidden-figures-tickets-1989725280877?aff=oddtdtcreator&keep_tld=true" target="_blank">Get Tickets</a>
       </div>
@@ -1160,7 +1232,7 @@
           <h3>Women in STEM Comedy</h3>
           <p>Lyric Hyperion · Los Angeles, CA</p>
         </div>
-        <span class="btn-primary" style="opacity: 0.5; cursor: default;">Tickets Coming Soon</span>
+        <a class="btn-primary" href="https://www.eventbrite.com/e/women-in-stem-tickets-1992326445029" target="_blank">Get Tickets</a>
       </div>
     </div>
   </section>
@@ -1170,23 +1242,74 @@
     <div class="corporate-inner">
       <div>
         <p class="section-label" style="color: var(--orange)">Corporate &amp; Events</p>
-        <h2 class="corp-title">The smartest entertainment option at your next event.</h2>
-        <p class="corp-body">Women in STEM Comedy is available for corporate events, conferences, ERG programming, and DEI initiatives. We bring a polished, professional show that earns genuine laughs from technical and non-technical audiences alike.</p>
+        <h2 class="corp-title">Three ways to bring us into the room.</h2>
+        <p class="corp-body">However you want to work with Women in STEM Comedy — as a sponsor, a private booking, or a guest star in a program you already own — there's a lane built for it. Pick the one that fits.</p>
         <a href="#contact" class="btn-orange">Get In Touch</a>
       </div>
       <div class="corp-cards">
-        <div class="corp-card">
-          <div class="corp-card-title"><span>1</span> Conference &amp; Summit Entertainment</div>
-          <div class="corp-card-body">A full live show for your tech conference, company onsite, or leadership retreat. Perfect for opening nights and closing celebrations.</div>
+        <a class="corp-card" href="#sponsors">
+          <div class="corp-card-title"><span>1</span> Sponsor a Show</div>
+          <div class="corp-card-body">Back one of our public shows — bring your team, put your name on it, skip the private-event price tag. Founding rates start at $500.</div>
+          <div class="corp-card-cta">See sponsorship tiers →</div>
+        </a>
+        <a class="corp-card" href="corporate-events.html#bookings">
+          <div class="corp-card-title"><span>2</span> Book the Full Show</div>
+          <div class="corp-card-body">Hire us to produce a private show for your offsite, summit, or ERG night — the designated evening, staged for your crowd. $2,500–$8,500+.</div>
+          <div class="corp-card-cta">See group booking packages →</div>
+        </a>
+        <a class="corp-card" href="corporate-events.html#solo">
+          <div class="corp-card-title"><span>3</span> Hire Cassidy Solo</div>
+          <div class="corp-card-body">Already have an agenda — a conference session, awards night, panel? Bring Cassidy in as emcee, comedian, or speaker. $1,200–$5,500+.</div>
+          <div class="corp-card-cta">See solo packages →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section class="sponsors" id="sponsors">
+    <div class="sponsors-inner">
+      <p class="section-label">Friends of the Show</p>
+      <h2 class="about-title">Back a room full of women in STEM.</h2>
+      <p class="corp-body sponsors-intro">Every show packs a room with female scientists and engineers (and the people who love them) for a smart and hilarious night to remember. Here's how your company can become part of the fun.</p>
+
+      <h3 class="tier-block-heading">Group Tickets</h3>
+      <p class="corp-body">Bringing three or more people? Reach out for our group rates — we'll seat your crew together for a great night of laughs.</p>
+
+      <h3 class="tier-block-heading">Sponsorship Tiers</h3>
+      <div class="tier-grid">
+        <div class="tier-card">
+          <p class="tier-card-name">Friend of the Show</p>
+          <p class="tier-card-price">$500</p>
+          <ul>
+            <li>15 tickets (a few reserved up front for your crew)</li>
+            <li>Your name and logo on the event page and in our promotional emails</li>
+            <li>A warm thank-you from the stage</li>
+            <li>A shoutout in our newsletter and on social</li>
+          </ul>
         </div>
-        <div class="corp-card">
-          <div class="corp-card-title"><span>2</span> ERG &amp; DEI Programming</div>
-          <div class="corp-card-body">Partner with your Women in Tech, STEM diversity, or inclusion-focused employee resource groups for a meaningful and entertaining event.</div>
+        <div class="tier-card">
+          <p class="tier-card-name">Presenting Partner</p>
+          <p class="tier-card-price">$1,000</p>
+          <ul>
+            <li>Everything in Friend of the Show, plus:</li>
+            <li>20 tickets in a reserved section</li>
+            <li>A round of drinks for your group</li>
+          </ul>
         </div>
-        <div class="corp-card">
-          <div class="corp-card-title"><span>3</span> Private &amp; Branded Shows</div>
-          <div class="corp-card-body">Our comics have worked across industries and can tailor our material to delight your audience and meet your event goals.</div>
-        </div>
+      </div>
+
+      <div class="addon-note">
+        <strong>Optional add-on — sponsor the bar: $150 + the tab.</strong> Cover the bar up to a cap you set, and we'll put out a "first round's on [your name]" sign and a thank-you from the stage. Works as a standalone, or stack it onto either tier above.
+      </div>
+
+      <p class="corp-body" style="margin-top: 2rem">Women in STEM audiences are intelligent, engaged professionals across industries, off the clock and ready for a fun night. Backing a show gets your name in front of that crowd, brings your team together for a great night out, and shows the world you support women in STEM. Sounds like a win-win.</p>
+
+      <p class="corp-body">We're not looking for sponsors chasing strategic logo placement — we're looking for partners who want to be part of a growing community and mission. Our audience is our top priority, so you won't find us handing over attendee emails, working your logo into the jokes, or setting up a merch table. Just a genuine thank-you, in front of a room that's actually paying attention.</p>
+
+      <div style="margin-top: 2rem">
+        <a href="mailto:cassidy.a.mcdonnell@gmail.com?subject=Sponsorship%20Inquiry" class="btn-orange">Become a Friend of the Show</a>
+        <p class="cross-link">Want us at your own event instead of a public show? <a href="corporate-events.html">See Bookings &amp; Solo options →</a></p>
       </div>
     </div>
   </section>

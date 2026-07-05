@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon-concept2-32.png">
+  <link rel="apple-touch-icon" href="favicon-concept2-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporate Bookings &amp; Solo Emcee/Keynote — Women in STEM Comedy</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #E8500A;
+      --blue: #0053F9;
+      --navy: #0A1A3A;
+      --cream: #FAF7F2;
+      --black: #111010;
+      --mid: #3D3A36;
+      --light: #C8C2B8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      background: var(--cream);
+      border-bottom: 1px solid var(--light);
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--mid);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta {
+      background: var(--blue) !important;
+      color: white !important;
+      padding: 0.55rem 1.25rem;
+      border-radius: 2rem;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; color: white !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 10rem 5rem 5rem;
+      background: var(--navy);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: var(--blue);
+      opacity: 0.15;
+      top: -100px;
+      right: -60px;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: var(--orange);
+      opacity: 0.18;
+      bottom: -60px;
+      left: -40px;
+      transform: rotate(15deg);
+    }
+    .page-header-inner { position: relative; z-index: 1; max-width: 720px; }
+    .page-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #6699ff;
+      margin-bottom: 1.25rem;
+    }
+    .page-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .page-title em { font-style: italic; color: var(--orange); }
+    .page-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      max-width: 560px;
+    }
+
+    /* ROUTING */
+    .routing {
+      padding: 5rem 5rem 6rem;
+      background: var(--cream);
+    }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .routing-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+    .routing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    a.routing-card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      background: white;
+      border: 1.5px solid var(--light);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    a.routing-card:hover { border-color: var(--blue); transform: translateY(-4px); }
+    .routing-card-q {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+    .routing-card-a {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .routing-card-cta {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* TRACK SECTIONS */
+    .track {
+      padding: 6rem 5rem;
+    }
+    .track--bookings { background: white; border-top: 1px solid var(--light); }
+    .track--solo { background: var(--cream); border-top: 1px solid var(--light); }
+    .track-inner { max-width: 900px; margin: 0 auto; }
+    .track-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.25rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .track-title em { font-style: italic; color: var(--orange); }
+    .track-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--mid);
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+      max-width: 680px;
+    }
+
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0 2rem;
+    }
+    .pkg-card {
+      background: white;
+      border: 1.5px solid var(--light);
+      border-radius: 1.25rem;
+      padding: 2rem 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .pkg-card:hover { border-color: var(--blue); transform: translateY(-4px); }
+    .pkg-card-length {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.6rem;
+    }
+    .pkg-card-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .pkg-card-desc {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      min-height: 4.5rem;
+    }
+    .pkg-card-price {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: var(--blue);
+      border-top: 1.5px solid var(--light);
+      padding-top: 1rem;
+    }
+    .track--solo .pkg-card { background: var(--cream); }
+
+    .addon-note {
+      background: var(--cream);
+      border-radius: 1rem;
+      padding: 1.5rem 1.75rem;
+      font-size: 0.92rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .track--solo .addon-note { background: white; }
+    .addon-note strong { color: var(--black); }
+
+    .terms-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+    .terms-list li { padding-left: 1.4rem; position: relative; }
+    .terms-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+    }
+
+    .btn-orange {
+      background: var(--orange);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(232,80,10,0.3);
+      display: inline-block;
+    }
+    .btn-orange:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,80,10,0.4); }
+
+    .cross-link { margin-top: 1.5rem; font-size: 0.9rem; color: var(--mid); }
+    .cross-link a { color: var(--blue); font-weight: 500; text-decoration: none; }
+    .cross-link a:hover { text-decoration: underline; }
+
+    /* CONTACT */
+    .contact {
+      padding: 7rem 5rem;
+      background: var(--blue);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact::before {
+      content: 'BOOK';
+      position: absolute;
+      font-family: 'DM Serif Display', serif;
+      font-size: 28vw;
+      color: rgba(0,0,0,0.08);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .contact::after {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: var(--orange);
+      opacity: 0.2;
+      border-radius: 50%;
+      bottom: -80px;
+      right: -60px;
+      pointer-events: none;
+    }
+    .contact-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      color: white;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-white {
+      background: white;
+      color: var(--blue);
+      padding: 0.9rem 2.2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+    .btn-outline-white {
+      border: 1.5px solid rgba(255,255,255,0.6);
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.4);
+      padding: 2.5rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--blue); }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: white;
+    }
+    .footer-links { display: flex; gap: 1.5rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-logo { font-size: 0.85rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .page-header { padding: 7rem 2rem 3.5rem; }
+      .routing, .track, .contact { padding: 4rem 2rem; }
+      .routing-grid, .pkg-grid { grid-template-columns: 1fr; }
+      .pkg-card-desc { min-height: 0; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Women in STEM Comedy</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#sponsors">Sponsors</a>
+      <a href="#bookings">Group Bookings</a>
+      <a href="#solo">Solo Emcee/Keynote</a>
+      <a href="#contact" class="nav-cta">Get a Quote</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Corporate &amp; Private Events</p>
+      <h1 class="page-title">Hire the whole show. Or just the <em>punchline.</em></h1>
+      <p class="page-sub">Two ways to bring Women in STEM Comedy to your event — a full curated show built around your night, or Cassidy solo, dropped into an agenda you already own.</p>
+    </div>
+  </header>
+
+  <!-- ROUTING -->
+  <section class="routing">
+    <p class="section-label">Which One Do You Need?</p>
+    <h2 class="routing-title">Let's find your fit.</h2>
+    <div class="routing-grid">
+      <a class="routing-card" href="#bookings">
+        <p class="routing-card-q">"We want to fill an entire evening."</p>
+        <p class="routing-card-a">An offsite night out, a summit's closing celebration, an ERG event that needs its own occasion. You want the full show.</p>
+        <p class="routing-card-cta">See Group Bookings →</p>
+      </a>
+      <a class="routing-card" href="#solo">
+        <p class="routing-card-q">"We already have an agenda."</p>
+        <p class="routing-card-a">A conference session, an awards night, a panel, a summit slot. You need Cassidy to host, perform, or speak inside a program that already exists.</p>
+        <p class="routing-card-cta">See Solo Emcee/Keynote →</p>
+      </a>
+      <a class="routing-card" href="index.html#sponsors">
+        <p class="routing-card-q">"We just want visibility with this crowd."</p>
+        <p class="routing-card-a">No private event needed — you want your name in front of our audience at one of our public shows.</p>
+        <p class="routing-card-cta">See Sponsorship →</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- GROUP BOOKINGS -->
+  <section class="track track--bookings" id="bookings">
+    <div class="track-inner">
+      <p class="section-label">Group Bookings</p>
+      <h2 class="track-title">The designated <em>evening.</em></h2>
+      <p class="track-body">This is the full, curated Women in STEM show, produced for your event — a team offsite's answer to bowling or an escape room, or a conference's closing-night entertainment. It's not a mid-agenda insert; that's what the solo option below is for. Pricing is by length, not headcount — how many comics take the stage is our creative call, not a cost lever.</p>
+
+      <div class="pkg-grid">
+        <div class="pkg-card">
+          <p class="pkg-card-length">60 Minutes</p>
+          <p class="pkg-card-name">60-Minute Show</p>
+          <p class="pkg-card-desc">The floor booking. A tight, high-energy set.</p>
+          <p class="pkg-card-price">$2,500–$3,500</p>
+        </div>
+        <div class="pkg-card">
+          <p class="pkg-card-length">90 Minutes</p>
+          <p class="pkg-card-name">The Signature Show</p>
+          <p class="pkg-card-desc">Our real, proven live-show format — the same length as the home shows that have sold out seven times.</p>
+          <p class="pkg-card-price">$4,000–$5,000</p>
+        </div>
+        <div class="pkg-card">
+          <p class="pkg-card-length">120 Minutes</p>
+          <p class="pkg-card-name">The Full Night</p>
+          <p class="pkg-card-desc">The 90-minute Signature Show, plus one add-on: a moderated Q&amp;A/panel or a meet-and-greet, your choice.</p>
+          <p class="pkg-card-price">$6,000–$7,000</p>
+        </div>
+      </div>
+
+      <div class="addon-note">
+        <strong>Want both add-ons?</strong> Q&amp;A/panel and meet-and-greet together (150 minutes total) run +$1,000–$1,500 on top of The Full Night quote — roughly $7,500–$8,500 all in.
+      </div>
+
+      <ul class="terms-list">
+        <li>LA/regional bookings: no travel fee. Bookings outside the LA area: tier price + T&amp;E (travel and expenses) — the exact number depends on city and lineup, so we'll nail it down together once we know both.</li>
+        <li>50% deposit due on signing, balance due day-of.</li>
+        <li>Quotes follow a quick discovery call, so we can match the package — and where in the range it lands — to what you actually need.</li>
+        <li>Minimum booking: $2,500.</li>
+      </ul>
+
+      <a href="mailto:cassidy.a.mcdonnell@gmail.com?subject=Group%20Booking%20Inquiry" class="btn-orange">Book the Full Show</a>
+      <p class="cross-link">Need someone inside an event you're already running, not a full evening? <a href="#solo">See Solo Emcee/Keynote →</a></p>
+    </div>
+  </section>
+
+  <!-- SOLO EMCEE / KEYNOTE -->
+  <section class="track track--solo" id="solo">
+    <div class="track-inner">
+      <p class="section-label">Solo Emcee / Keynote</p>
+      <h2 class="track-title">Already have the agenda? We'll fit right in.</h2>
+      <p class="track-body">This is a different product from the group show, not a smaller version of it. You already own the occasion — a conference session, an awards night, a panel, a summit — and you're hiring Cassidy individually to fill a role inside it: comedian, speaker, or host. Priced by format, since the role you need is what actually drives the ask here.</p>
+
+      <div class="pkg-grid">
+        <div class="pkg-card">
+          <p class="pkg-card-length">20 Min · Comedian</p>
+          <p class="pkg-card-name">Stand-Up Set</p>
+          <p class="pkg-card-desc">A tight, tested, high-energy stand-up set — crowd-tested STEM/corporate material, dropped into your conference session, all-hands, or summit breakout.</p>
+          <p class="pkg-card-price">$1,200–$2,200</p>
+        </div>
+        <div class="pkg-card">
+          <p class="pkg-card-length">30 Min · Speaker</p>
+          <p class="pkg-card-name">Speaking/Talk<br><span style="font-size:0.6em; color: var(--mid); font-family:'DM Sans',sans-serif; font-weight:400;">(Keynote-Adjacent)</span></p>
+          <p class="pkg-card-desc">A narrative talk on the engineer/comedian double life, comedic beats woven through a speaker-style structure — the "keynote-adjacent" slot.</p>
+          <p class="pkg-card-price">$1,750–$2,500</p>
+        </div>
+        <div class="pkg-card">
+          <p class="pkg-card-length">Full Event · Host</p>
+          <p class="pkg-card-name">Emcee / Host</p>
+          <p class="pkg-card-desc">Hosting duties for the whole program: intros, transitions, keeping energy up between segments, moderating, humor woven throughout.</p>
+          <p class="pkg-card-price">$3,000–$5,000</p>
+        </div>
+      </div>
+
+      <div class="addon-note">
+        <strong>Emcee + Set combo:</strong> host the full event and deliver one additional format within it (Stand-Up Set or Speaking/Talk, your choice) for +$1,000–$1,500 on top of the Emcee/Host quote — roughly $4,000–$5,500 all in.
+      </div>
+
+      <ul class="terms-list">
+        <li>LA/regional: no travel fee. Outside the LA area: tier price + T&amp;E — no formula, just a real number once we know the city.</li>
+        <li>50% deposit due on signing, balance due day-of.</li>
+        <li>Quotes follow a quick discovery call.</li>
+        <li>Minimum booking: $1,200.</li>
+      </ul>
+
+      <a href="mailto:cassidy.a.mcdonnell@gmail.com?subject=Solo%20Emcee%2FKeynote%20Inquiry" class="btn-orange">Book Cassidy Solo</a>
+      <p class="cross-link">Need the full room, the whole night? <a href="#bookings">See Group Bookings →</a></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <p class="contact-label">Get In Touch</p>
+    <h2 class="contact-title">Let's put some<br>science on stage.</h2>
+    <p class="contact-sub">Tell us what you're planning and which option fits — we'll take it from there on a quick discovery call.</p>
+    <div class="contact-actions">
+      <a href="mailto:cassidy.a.mcdonnell@gmail.com" class="btn-white">Send Us a Note</a>
+      <a href="index.html#sponsors" class="btn-outline-white">See Sponsorship Instead</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Women in STEM Comedy</span>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/womeninstem.comedy/" target="_blank" rel="noopener">Instagram</a>
+      <a href="index.html">Home</a>
+    </div>
+    <span>© 2025 Women in STEM Comedy. Los Angeles, CA.</span>
+  </footer>
+
+</body>
+</html>
