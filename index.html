@@ -543,18 +543,35 @@
 
     .logo-grid {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem 3.5rem;
-      max-width: 900px;
+      overflow: hidden;
+      max-width: 100%;
       margin: 0 auto;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     }
+    .logo-track {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      gap: 1.5rem 2.5rem;
+      padding-right: 2.5rem;
+      animation: logoScroll 60s linear infinite;
+    }
+    .logo-grid:hover .logo-track { animation-play-state: paused; }
     .logo-grid img {
       height: 50px;
       width: auto;
       object-fit: contain;
       display: block;
+      flex-shrink: 0;
+      filter: grayscale(1);
+      opacity: 0.6;
+      transition: filter 0.2s, opacity 0.2s;
+    }
+    .logo-grid img:hover { filter: grayscale(0); opacity: 1; }
+    @keyframes logoScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
     .logo-grid--studied img { height: 54px; }
     .logo-grid--performed img { height: 58px; }
@@ -966,6 +983,7 @@
       .shows, .corporate, .contact, .sponsors { padding: 5rem 2rem; }
       .tier-grid { grid-template-columns: 1fr; }
       .comics { padding: 2rem 2rem 5rem; }
+      .logo-track { animation-duration: 44s; }
       .video-section { padding: 3rem 2rem; }
       .testimonials { padding: 5rem 2rem; }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -1135,18 +1153,60 @@
 
   <!-- ABOUT OUR COMICS -->
   <section class="comics" id="comics">
-    <h2 class="comics-heading">a bit about our comics...</h2>
+    <h2 class="comics-heading">a few places our comics have been...</h2>
     <div class="logo-grid">
-      <img src="logos/MIT.png" alt="MIT" />
-      <img src="logos/stanford.png" alt="Stanford" />
-      <img src="logos/Harvard-Emblem.png" alt="Harvard" />
-      <img src="logos/google.png" alt="Google" />
-      <img src="logos/apple.png" alt="Apple" />
-      <img src="logos/netflix%20is%20a%20joke.png" alt="Netflix is a Joke Fest" />
-      <img src="logos/HBO_Max-Logo.wine.png" alt="HBO Max" style="height:40px" />
-      <img src="logos/comedy%20store.png" alt="The Comedy Store" style="height:71px" />
+      <div class="logo-track">
+        <img src="logos/MIT.png" alt="MIT" />
+        <img src="logos/stanford.png" alt="Stanford" />
+        <img src="logos/Harvard-Emblem.png" alt="Harvard" />
+        <img src="logos/berkeley.png" alt="UC Berkeley" />
+        <img src="logos/Caltech_Logo.svg.png" alt="Caltech" style="height:40px" />
+        <img src="logos/CMU%20logo.png" alt="Carnegie Mellon" />
+        <img src="logos/Cornell_University_seal.svg.png" alt="Cornell" style="height:67px" />
+        <img src="logos/vanderbilt.png" alt="Vanderbilt" style="height:67px" />
+        <img src="logos/penn.png" alt="Penn" />
+        <img src="logos/google.png" alt="Google" />
+        <img src="logos/microsoft.png" alt="Microsoft" style="height:69px" />
+        <img src="logos/meta-logo.webp" alt="Meta" />
+        <img src="logos/Hulu-Logo.wine.png" alt="Hulu" style="height:65px" />
+        <img src="logos/apple.png" alt="Apple" />
+        <img src="logos/Snapchat-Logo.png" alt="Snapchat" style="height:60px" />
+        <img src="logos/thermo-fisher-scientific-logo-11530964369n55iig0pja.png" alt="Thermo Fisher" style="height:50px" />
+        <img src="logos/ucla%20health%20copy.png" alt="UCLA Health" style="height:58px" />
+        <img src="logos/wsp.png" alt="WSP" />
+        <img src="logos/netflix%20is%20a%20joke.png" alt="Netflix is a Joke Fest" />
+        <img src="logos/HBO_Max-Logo.wine.png" alt="HBO Max" style="height:40px" />
+        <img src="logos/prime%20video.png" alt="Prime Video" />
+        <img src="logos/Dropout_Logo_VHX_4.png" alt="Dropout" />
+        <img src="logos/improv.png" alt="Improv" style="height:71px" />
+        <img src="logos/comedy%20store.png" alt="The Comedy Store" style="height:71px" />
+        <img src="logos/MIT.png" alt="MIT" />
+        <img src="logos/stanford.png" alt="Stanford" />
+        <img src="logos/Harvard-Emblem.png" alt="Harvard" />
+        <img src="logos/berkeley.png" alt="UC Berkeley" />
+        <img src="logos/Caltech_Logo.svg.png" alt="Caltech" style="height:40px" />
+        <img src="logos/CMU%20logo.png" alt="Carnegie Mellon" />
+        <img src="logos/Cornell_University_seal.svg.png" alt="Cornell" style="height:67px" />
+        <img src="logos/vanderbilt.png" alt="Vanderbilt" style="height:67px" />
+        <img src="logos/penn.png" alt="Penn" />
+        <img src="logos/google.png" alt="Google" />
+        <img src="logos/microsoft.png" alt="Microsoft" style="height:69px" />
+        <img src="logos/meta-logo.webp" alt="Meta" />
+        <img src="logos/Hulu-Logo.wine.png" alt="Hulu" style="height:65px" />
+        <img src="logos/apple.png" alt="Apple" />
+        <img src="logos/Snapchat-Logo.png" alt="Snapchat" style="height:60px" />
+        <img src="logos/thermo-fisher-scientific-logo-11530964369n55iig0pja.png" alt="Thermo Fisher" style="height:50px" />
+        <img src="logos/ucla%20health%20copy.png" alt="UCLA Health" style="height:58px" />
+        <img src="logos/wsp.png" alt="WSP" />
+        <img src="logos/netflix%20is%20a%20joke.png" alt="Netflix is a Joke Fest" />
+        <img src="logos/HBO_Max-Logo.wine.png" alt="HBO Max" style="height:40px" />
+        <img src="logos/prime%20video.png" alt="Prime Video" />
+        <img src="logos/Dropout_Logo_VHX_4.png" alt="Dropout" />
+        <img src="logos/improv.png" alt="Improv" style="height:71px" />
+        <img src="logos/comedy%20store.png" alt="The Comedy Store" style="height:71px" />
+      </div>
     </div>
-    <p class="stats-note" style="text-align:center">That's the short list — see the full resume on our <a href="corporate-events.html">bookings page</a>.</p>
+    <p class="stats-note" style="text-align:center">See the full resume on our <a href="corporate-events.html">bookings page</a>.</p>
   </section>
 
   <!-- TESTIMONIALS -->
