@@ -5,7 +5,7 @@
   <link rel="icon" type="image/png" href="favicon-concept2-32.png">
   <link rel="apple-touch-icon" href="favicon-concept2-32.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Corporate Bookings &amp; Solo Emcee/Keynote — Women in STEM Comedy</title>
+  <title>Corporate, Bookings &amp; Sponsorships — Women in STEM Comedy</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -98,7 +98,7 @@
       left: -40px;
       transform: rotate(15deg);
     }
-    .page-header-inner { position: relative; z-index: 1; max-width: 720px; }
+    .page-header-inner { position: relative; z-index: 1; max-width: 900px; }
     .page-eyebrow {
       font-size: 0.75rem;
       font-weight: 500;
@@ -109,10 +109,11 @@
     }
     .page-title {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
       line-height: 1.05;
       letter-spacing: -0.02em;
       margin-bottom: 1.25rem;
+      white-space: nowrap;
     }
     .page-title em { font-style: italic; color: var(--orange); }
     .page-sub {
@@ -120,7 +121,6 @@
       line-height: 1.7;
       color: rgba(255,255,255,0.75);
       font-weight: 300;
-      max-width: 560px;
     }
 
     /* ROUTING */
@@ -185,6 +185,7 @@
     }
     .track--bookings { background: white; border-top: 1px solid var(--light); }
     .track--solo { background: var(--cream); border-top: 1px solid var(--light); }
+    .track--sponsors { background: white; border-top: 1px solid var(--light); }
     .track-inner { max-width: 900px; margin: 0 auto; }
     .track-title {
       font-family: 'DM Serif Display', serif;
@@ -246,6 +247,16 @@
       padding-top: 1rem;
     }
     .track--solo .pkg-card { background: var(--cream); }
+    .pkg-grid--two { grid-template-columns: repeat(2, 1fr); max-width: 680px; }
+    .pkg-card ul {
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .pkg-card ul li { padding-left: 1.1rem; position: relative; }
+    .pkg-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--blue); }
 
     .addon-note {
       background: var(--cream);
@@ -411,8 +422,9 @@
       .nav-links { gap: 1rem; }
       .nav-links a:not(.nav-cta) { display: none; }
       .page-header { padding: 7rem 2rem 3.5rem; }
+      .page-title { white-space: normal; }
       .routing, .track, .contact { padding: 4rem 2rem; }
-      .routing-grid, .pkg-grid { grid-template-columns: 1fr; }
+      .routing-grid, .pkg-grid, .pkg-grid--two { grid-template-columns: 1fr; }
       .pkg-card-desc { min-height: 0; }
       footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
     }
@@ -425,9 +437,9 @@
     <a href="index.html" class="nav-logo">Women in STEM Comedy</a>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="index.html#sponsors">Sponsors</a>
       <a href="#bookings">Group Bookings</a>
       <a href="#solo">Solo Emcee/Keynote</a>
+      <a href="#sponsors">Sponsors</a>
       <a href="#contact" class="nav-cta">Get a Quote</a>
     </div>
   </nav>
@@ -435,9 +447,9 @@
   <!-- PAGE HEADER -->
   <header class="page-header">
     <div class="page-header-inner">
-      <p class="page-eyebrow">Corporate &amp; Private Events</p>
-      <h1 class="page-title">Hire the whole show. Or just the <em>punchline.</em></h1>
-      <p class="page-sub">Two ways to bring Women in STEM Comedy to your event — a full curated show built around your night, or Cassidy solo, dropped into an agenda you already own.</p>
+      <p class="page-eyebrow">Corporate, Bookings &amp; Sponsorships</p>
+      <h1 class="page-title">Three ways to work with <em>us.</em></h1>
+      <p class="page-sub">Sponsor one of our public shows, book the full curated lineup for your offsite or conference, or bring in a solo emcee, speaker, or stand-up act to add a little sparkle to your existing event.</p>
     </div>
   </header>
 
@@ -453,12 +465,12 @@
       </a>
       <a class="routing-card" href="#solo">
         <p class="routing-card-q">"We already have an agenda."</p>
-        <p class="routing-card-a">A conference session, an awards night, a panel, a summit slot. You need Cassidy to host, perform, or speak inside a program that already exists.</p>
+        <p class="routing-card-a">A conference session, an awards night, a panel, a summit slot. You need a host, performers, or emcee inside a program that already exists.</p>
         <p class="routing-card-cta">See Solo Emcee/Keynote →</p>
       </a>
-      <a class="routing-card" href="index.html#sponsors">
+      <a class="routing-card" href="#sponsors">
         <p class="routing-card-q">"We just want visibility with this crowd."</p>
-        <p class="routing-card-a">No private event needed — you want your name in front of our audience at one of our public shows.</p>
+        <p class="routing-card-a">No private event needed - you want your name in front of our audience at one of our public shows.</p>
         <p class="routing-card-cta">See Sponsorship →</p>
       </a>
     </div>
@@ -469,7 +481,10 @@
     <div class="track-inner">
       <p class="section-label">Group Bookings</p>
       <h2 class="track-title">The designated <em>evening.</em></h2>
-      <p class="track-body">This is the full, curated Women in STEM show, produced for your event — a team offsite's answer to bowling or an escape room, or a conference's closing-night entertainment. It's not a mid-agenda insert; that's what the solo option below is for. Pricing is by length, not headcount — how many comics take the stage is our creative call, not a cost lever.</p>
+      <p class="track-body" style="max-width: none;">Are you looking for a unique activity for your company offsite?
+        Or perhaps you need a way to close out your conference with a fun and memorable bang.
+        Women in STEM offers a unique night of laughter your team and attendees will still be talking about for weeks on end.
+       </p>
 
       <div class="pkg-grid">
         <div class="pkg-card">
@@ -552,6 +567,49 @@
     </div>
   </section>
 
+  <!-- SPONSORS -->
+  <section class="track track--sponsors" id="sponsors">
+    <div class="track-inner">
+      <p class="section-label">Sponsorship</p>
+      <h2 class="track-title">Back a room full of women in <em>STEM.</em></h2>
+      <p class="track-body">Not looking for a private event — just want your name in front of this crowd? Sponsor one of our public shows instead. Every show packs a room with female scientists and engineers (and the people who love them) for a smart, hilarious night. These are founding rates, with room to grow as we do.</p>
+      <p class="track-body"><strong>Group tickets:</strong> bringing three or more people? Reach out for our group rates — we'll seat your crew together for a great night of laughs.</p>
+
+      <div class="pkg-grid pkg-grid--two">
+        <div class="pkg-card">
+          <p class="pkg-card-length">15 Tickets</p>
+          <p class="pkg-card-name">Friend of the Show</p>
+          <ul>
+            <li>A few tickets reserved up front for your crew</li>
+            <li>Your name and logo on the event page and in our promotional emails</li>
+            <li>A warm thank-you from the stage</li>
+            <li>A shoutout in our newsletter and on social</li>
+          </ul>
+          <p class="pkg-card-price">$500</p>
+        </div>
+        <div class="pkg-card">
+          <p class="pkg-card-length">20 Tickets</p>
+          <p class="pkg-card-name">Presenting Partner</p>
+          <ul>
+            <li>Everything in Friend of the Show, plus:</li>
+            <li>A reserved section for your group</li>
+            <li>A round of drinks on us</li>
+          </ul>
+          <p class="pkg-card-price">$1,000</p>
+        </div>
+      </div>
+
+      <div class="addon-note">
+        <strong>Optional add-on — sponsor the bar: $150 + the tab.</strong> Cover the bar up to a cap you set, and we'll put out a "first round's on [your name]" sign and a thank-you from the stage. Works as a standalone, or stack it onto either tier above.
+      </div>
+
+      <p class="track-body">We're not chasing strategic logo placement — we're looking for partners who want to be part of a growing community and mission. You won't find us handing over attendee emails, working your logo into the jokes, or setting up a merch table. Just a genuine thank-you, in front of a room that's actually paying attention.</p>
+
+      <a href="mailto:cassidy.a.mcdonnell@gmail.com?subject=Sponsorship%20Inquiry" class="btn-orange">Become a Friend of the Show</a>
+      <p class="cross-link">Want the full room instead of just a seat in it? <a href="#bookings">See Group Bookings ↑</a></p>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <p class="contact-label">Get In Touch</p>
@@ -559,7 +617,6 @@
     <p class="contact-sub">Tell us what you're planning and which option fits — we'll take it from there on a quick discovery call.</p>
     <div class="contact-actions">
       <a href="mailto:cassidy.a.mcdonnell@gmail.com" class="btn-white">Send Us a Note</a>
-      <a href="index.html#sponsors" class="btn-outline-white">See Sponsorship Instead</a>
     </div>
   </section>
 
