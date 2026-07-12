@@ -179,6 +179,67 @@
       letter-spacing: 0.03em;
     }
 
+    /* ABOUT OUR COMICS */
+    .comics {
+      padding: 3rem 4.5rem 6rem;
+      background: white;
+      border-top: 1px solid var(--light);
+    }
+    .comics-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 3.5rem;
+      text-align: center;
+    }
+
+    .logos-block {
+      margin-bottom: 4.5rem;
+    }
+    .logos-block:last-child { margin-bottom: 0; }
+
+    .logos-label {
+      font-size: 1.15rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 2.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+    .logos-label::before,
+    .logos-label::after {
+      content: '';
+      flex: 1;
+      max-width: 160px;
+      height: 1px;
+      background: var(--light);
+    }
+
+    .logo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem 3.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .logo-grid img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .logo-grid--studied img { height: 54px; }
+    .logo-grid--performed img { height: 58px; }
+    .flex-break { flex-basis: 100%; height: 0; }
+
     /* TRACK SECTIONS */
     .track {
       padding: 6rem 5rem;
@@ -425,6 +486,7 @@
       .page-header { padding: 7rem 2rem 3.5rem; }
       .page-title { white-space: normal; }
       .routing, .track, .contact { padding: 4rem 2rem; }
+      .comics { padding: 2rem 2rem 5rem; }
       .routing-grid, .pkg-grid, .pkg-grid--two { grid-template-columns: 1fr; }
       .pkg-card-desc { min-height: 0; }
       footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
@@ -474,6 +536,68 @@
         <p class="routing-card-a">No private event needed - you want your name in front of our audience at one of our public shows.</p>
         <p class="routing-card-cta">See Sponsorship →</p>
       </a>
+    </div>
+  </section>
+
+  <!-- ABOUT OUR COMICS -->
+  <section class="comics" id="comics">
+    <h2 class="comics-heading">a bit about our comics...</h2>
+    <div class="logos-block">
+      <p class="logos-label">Where we've studied</p>
+      <div class="logo-grid logo-grid--studied">
+        <img src="logos/Harvard-Emblem.png" alt="Harvard" />
+        <img src="logos/MIT.png" alt="MIT" />
+        <img src="logos/stanford.png" alt="Stanford" />
+        <img src="logos/berkeley.png" alt="UC Berkeley" />
+        <img src="logos/Caltech_Logo.svg.png" alt="Caltech" style="height:40px" />
+        <img src="logos/CMU%20logo.png" alt="Carnegie Mellon" />
+        <div class="flex-break"></div>
+        <img src="logos/Cornell_University_seal.svg.png" alt="Cornell" style="height:67px" />
+        <img src="logos/barnard-college-logo.png" alt="Barnard" />
+        <img src="logos/vanderbilt.png" alt="Vanderbilt" style="height:67px" />
+        <img src="logos/penn.png" alt="Penn" />
+      </div>
+    </div>
+
+    <div class="logos-block">
+      <p class="logos-label">Where we've worked</p>
+      <div class="logo-grid">
+        <img src="logos/google.png" alt="Google" />
+        <img src="logos/microsoft.png" alt="Microsoft" style="height:69px" />
+        <img src="logos/meta-logo.webp" alt="Meta" />
+        <img src="logos/Hulu-Logo.wine.png" alt="Hulu" style="height:65px" />
+        <img src="logos/apple.png" alt="Apple" />
+        <img src="logos/Snapchat-Logo.png" alt="Snapchat" style="height:60px" />
+        <img src="logos/thermo-fisher-scientific-logo-11530964369n55iig0pja.png" alt="Thermo Fisher" style="height:50px" />
+        <img src="logos/ucla%20health%20copy.png" alt="UCLA Health" style="height:58px" />
+        <img src="logos/wsp.png" alt="WSP" />
+        <img src="logos/JP-Morgan-Chase-Emblem.png" alt="J.P. Morgan" />
+        <img src="logos/balto.png" alt="Balto" />
+        <img src="logos/success%20academy.png" alt="Success Academy" />
+      </div>
+    </div>
+
+    <div class="logos-block">
+      <p class="logos-label">Where we've performed</p>
+      <div class="logo-grid logo-grid--performed">
+        <img src="logos/lastcomicstanding0.png" alt="Last Comic Standing" />
+        <img src="logos/netflix%20is%20a%20joke.png" alt="Netflix is a Joke Fest" />
+        <img src="logos/HBO_Max-Logo.wine.png" alt="HBO Max" style="height:40px" />
+        <img src="logos/prime%20video.png" alt="Prime Video" />
+        <img src="logos/Dropout_Logo_VHX_4.png" alt="Dropout" />
+        <div class="flex-break"></div>
+        <img src="logos/don't%20tell.png" alt="Don't Tell Comedy" />
+        <img src="logos/ucb.png" alt="UCB Theatre" />
+        <img src="logos/the%20stand.png" alt="The Stand" />
+        <img src="logos/JFL-The-Lede-1.png" alt="Just for Laughs" style="height:71px" />
+        <img src="logos/comedy%20store.png" alt="The Comedy Store" style="height:71px" />
+        <div class="flex-break"></div>
+        <img src="logos/Laugh_Factory_Show_Category.jpg" alt="Laugh Factory" />
+        <img src="logos/ny%20comedy%20festival%20copy.jpg" alt="NY Comedy Festival" />
+        <img src="logos/new%20york%20comedy%20club%20copy.jpg" alt="New York Comedy Club" />
+        <img src="logos/improv.png" alt="Improv" style="height:71px" />
+        <img src="logos/LastCall.png" alt="Last Call with Carson Daly" />
+      </div>
     </div>
   </section>
 
