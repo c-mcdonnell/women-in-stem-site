@@ -389,6 +389,52 @@
     }
     .btn-orange:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,80,10,0.4); }
 
+    /* ORGANIZER QUOTE */
+    .org-quote {
+      background: var(--cream);
+      border: 1.5px solid var(--light);
+      border-radius: 1.25rem;
+      padding: 2rem 2.25rem 1.75rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .track--solo .org-quote { background: white; }
+    .org-quote::before {
+      content: '\201C';
+      font-family: 'DM Serif Display', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--blue);
+      opacity: 0.15;
+      position: absolute;
+      top: 0.75rem;
+      left: 1.5rem;
+    }
+    .org-quote-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      font-style: italic;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+      padding-top: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    .org-quote-attr {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .org-quote-attr strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 0.1rem;
+      font-size: 0.7rem;
+    }
+
     .cross-link { margin-top: 1.5rem; font-size: 0.9rem; color: var(--mid); }
     .cross-link a { color: var(--blue); font-weight: 500; text-decoration: none; }
     .cross-link a:hover { text-decoration: underline; }
@@ -743,6 +789,11 @@
         </div>
       </div>
       <p style="margin-bottom: 1.5rem"><i>Prices above are all-in for events in the LA area. Bringing us to another city? We'll roll travel into one clear quote.</i></p>
+
+      <div class="org-quote">
+        <p class="org-quote-text">"Cassidy was fantastic to work with in putting together a night of comedy for our MIT alumni group. The show was outstanding - clever STEM-inspired humor that connected perfectly with our engineers and scientists - a truly memorable evening."</p>
+        <p class="org-quote-attr"><strong>Anurag Sood</strong>VP Programs, MIT Club of Southern California</p>
+      </div>
 
       <a href="#contact" class="btn-orange">Book the full show</a>
       <p class="cross-link">Need someone to add a little fun to an event you're already running? <a href="#solo">See Solo Bookings →</a></p>
